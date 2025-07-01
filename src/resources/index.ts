@@ -1,0 +1,1 @@
+export { systemInfoResource, getSystemInfo } from './system-info.js';
