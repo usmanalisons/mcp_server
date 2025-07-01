@@ -4,7 +4,7 @@ A comprehensive Model Context Protocol (MCP) server implementation in Node.js wi
 
 ## Features
 
-- **Tools**: Calculator, File Operations, Weather Information
+- **Tools**: Weather Information
 - **Resources**: System Information
 - **Prompts**: Code Review Templates
 - **TypeScript**: Full type safety and modern JavaScript features
@@ -27,93 +27,10 @@ npm start
 npm run dev
 ```
 
-## Configuration
-
-### For Claude Desktop
-
-Add to your Claude Desktop configuration file (`~/Library/Application Support/Claude/claude_desktop_config.json` on macOS):
-
-```json
-{
-  "mcpServers": {
-    "mcp-server-nodejs": {
-      "command": "node",
-      "args": ["/path/to/mcp-server-nodejs/dist/index.js"],
-      "env": {
-        "LOG_LEVEL": "info"
-      }
-    }
-  }
-}
-```
-
-### For LibreChat
-
-Add to your LibreChat configuration:
-
-```yaml
-# In your librechat.yaml or docker-compose.yml
-endpoints:
-  custom:
-    - name: "MCP Server"
-      apiKey: "user_provided"
-      baseURL: "http://localhost:3000"
-      models:
-        default: ["mcp-server-nodejs"]
-      titleConvo: true
-      titleModel: "mcp-server-nodejs"
-      modelDisplayLabel: "MCP Server"
-```
-
 ## Available Tools
 
-### Calculator
-Perform mathematical calculations with expressions.
-
-```javascript
-// Example usage
-{
-  "name": "calculator",
-  "arguments": {
-    "expression": "2 + 2 * 3"
-  }
-}
-```
-
-### File Operations
-Read, write, and list files and directories.
-
-```javascript
-// Read file
-{
-  "name": "file_operations",
-  "arguments": {
-    "operation": "read",
-    "path": "/path/to/file.txt"
-  }
-}
-
-// Write file
-{
-  "name": "file_operations",
-  "arguments": {
-    "operation": "write",
-    "path": "/path/to/file.txt",
-    "content": "Hello, World!"
-  }
-}
-
-// List directory
-{
-  "name": "file_operations",
-  "arguments": {
-    "operation": "list",
-    "path": "/path/to/directory"
-  }
-}
-```
-
 ### Weather
+
 Get weather information for a location (mock data for demo).
 
 ```javascript
@@ -128,6 +45,7 @@ Get weather information for a location (mock data for demo).
 ## Available Resources
 
 ### System Information
+
 Access current system information and statistics.
 
 - URI: `system://info`
@@ -136,6 +54,7 @@ Access current system information and statistics.
 ## Available Prompts
 
 ### Code Review
+
 Generate comprehensive code review prompts.
 
 ```javascript
